@@ -1,26 +1,26 @@
-"use client";import TaskCard from "../../components/TaskCard";
-import TaskForm from "../../components/TaskForm";
+import TaskForm from "@/components/TaskForm";
+import TaskCard from "@/components/TaskCard";
 
-export default function TasksPage() {
-  const tasks = [
-    { id: 1, title: "Finish homework", description: "Math and Science", priority: "high", status: "pending" },
-    { id: 2, title: "Grocery shopping", description: "Buy vegetables", priority: "medium", status: "done" },
-  ];
-
-  const handleSubmit = (task) => {
-    console.log("Save task", task);
+export default function Home() {
+  const demoTask = {
+    title: "Learn Next.js",
+    description: "Build AI Task Manager project",
+    priority: "High",
+    status: "Pending",
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Tasks</h1>
-      <TaskForm onSubmit={handleSubmit} />
-      <div className="mt-4">
-        {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))}
+    <main className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-6">AI Task Manager</h1>
+
+      <TaskForm />
+
+      <div className="mt-6">
+        <TaskCard task={demoTask} />
       </div>
-    </div>
+    </main>
   );
+}
+
 }
 
